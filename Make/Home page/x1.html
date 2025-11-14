@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เสด็จสู่สวรรคาลัย</title>
+    <!-- โหลด Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- ใช้ฟอนต์ Prompt เพื่อให้ดูเข้ากับสไตล์ทางการ --><link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* กำหนดรูปแบบตัวอักษรพื้นฐานและพื้นหลัง */
+        body {
+            /* 🚨 ใช้ URL Placeholder แทน URL รูปภาพพื้นหลังของคุณ 🚨 */
+            background-image: url('/images/background2.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            font-family: 'Prompt', sans-serif;
+            color: #FFFFFF;
+        }
+
+        /* สำหรับภาพ: ขาวดำ, มีขอบทอง, และแอนิเมชันตอนโฮเวอร์ */
+        .portrait-frame {
+            border: 3px solid #FFD700; 
+            filter: grayscale(100%); 
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+        }
+
+        .portrait-frame:hover {
+            filter: grayscale(0%); /* เปลี่ยนเป็นภาพสีปกติ */
+            transform: scale(1.1); /* ขยายภาพขึ้นเล็กน้อย */
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+        }
+
+        /* สีทองสำหรับข้อความและเส้นแบ่ง */
+        .text-gold {
+            color: #FFD700;
+        }
+
+        /* ************ CSS สำหรับปุ่มมีแสงวิบวับ ************ */
+        .btn-gold-shine {
+            /* ทำให้ปุ่มเป็น Relative เพื่อให้แสง (::before) จัดตำแหน่งได้ */
+            position: relative;
+            overflow: hidden; /* ซ่อนแสงเมื่ออยู่นอกปุ่ม */
+            background-color: #2D2D2D; /* สีเทาเข้มพื้นหลังปุ่มตามภาพ */
+            border: 1px solid #FFD700; /* ขอบทอง */
+            color: #FFD700; /* ตัวอักษรสีทอง */
+            transition: background-color 0.3s, transform 0.3s;
+            text-decoration: none; /* ลบเส้นใต้ลิงก์ */
+        }
+        
+        .btn-gold-shine:hover {
+            transform: translateY(-2px); /* ยกปุ่มขึ้นเล็กน้อยตอนโฮเวอร์ */
+            background-color: #3A3A3A;
+        }
+
+        .btn-gold-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%; /* เริ่มต้นแสงอยู่นอกปุ่มทางซ้าย */
+            width: 50%; /* ความกว้างของแสง */
+            height: 100%;
+            /* สร้างแสง Gradient สีทอง */
+            background: linear-gradient(to right, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 215, 0, 0.4) 50%, /* แสงสีทอง */
+                rgba(255, 255, 255, 0) 100%
+            );
+            /* ใช้ skew เพื่อให้แสงเป็นแนวเฉียงคล้ายในภาพ */
+            transform: skewX(-20deg); 
+            transition: none; /* ปิด transition เพื่อใช้ keyframes animation แทน */
+        }
+
+        .btn-gold-shine:hover::before {
+            /* เมื่อโฮเวอร์ ให้แสงเลื่อนจากซ้ายไปขวาอย่างรวดเร็ว */
+            transition: all 0.7s ease; /* กำหนดความเร็วในการเลื่อน */
+            left: 100%; /* เลื่อนไปจนสุดทางขวา */
+        }
+        /* ************ END CSS ปุ่มมีแสงวิบวับ ************ */
+
+    </style>
+</head>
+<!-- ปรับ body: เปลี่ยน items-center เป็น items-start และเพิ่ม pt-20 --><body class="flex items-start justify-center min-h-screen p-4 pt-20">
+
+    <!-- Container หลักที่อยู่ตรงกลาง --><div class="text-center max-w-xl w-full" style="text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);">
+
+        <!-- ส่วนของรูปภาพบุคคลสำคัญ --><div class="mb-8">
+            <!-- 🚨 กรุณาเปลี่ยน URL นี้เป็นรูปภาพสีของคุณเอง 🚨 --><img 
+                src="/images/010.jpg" 
+                onerror="this.onerror=null;this.src='https://placehold.co/160x160/000000/FFFFFF?text=P+H'"
+                alt="ภาพบุคคลสำคัญ" 
+                class="w-52 h-52 object-cover rounded-full mx-auto portrait-frame"
+            >
+        </div>
+        
+        <!-- ส่วนของข้อความหลัก --><h1 class="text-3xl md:text-4xl font-light mb-3 text-gold">
+            เสด็จสู่สวรรคาลัย
+        </h1>
+        <p class="text-xl md:text-2xl font-medium mb-1 text-white">
+            สมเด็จพระนางเจ้าสิริกิติ์
+        </p>
+        <p class="text-xl md:text-2xl mb-10 text-white">
+            พระบรมราชินีนาถ พระบรมราชชนนีพันปีหลวง<br>
+            ด้วยสำนึกในพระมหากรุณาธิคุณอันหาที่สุดมิได้
+        </p>
+        
+        <!-- ข้อความแสดงความเคารพ (Credit/Signature) --><div class="text-center mb-10 mt-10">
+            <p class="text-xl md:text-2xl text-gold tracking-wider leading-relaxed">
+                ข้าพระพุทธเจ้า คณะกรรมการสภานักเรียน<br>
+                โรงเรียนเตรียมอุดมศึกษา ภาคตะวันออกเฉียงเหนือ
+            </p>
+        </div>
+
+        <!-- ปุ่มเข้าสู่เว็บไซต์ พร้อมเอฟเฟกต์แสงวิบวับ (btn-gold-shine) -->
+        <!-- 💡 แก้ไขให้เป็นแท็ก A พร้อม href เพื่อให้สามารถลิงก์ไปยังหน้า A1.html ได้ทันที -->
+        <a href="A1.html" class="px-10 py-3 mt-16 text-base font-medium transition duration-300 rounded-full btn-gold-shine inline-block">
+            เข้าสู่เว็บไซต์
+        </a>
+
+    </div>
+
+</body>
+</html>
