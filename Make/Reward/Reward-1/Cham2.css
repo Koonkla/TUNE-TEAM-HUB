@@ -40,6 +40,15 @@ header {
     max-width: 1200px;
     margin: 0 auto;
 }
+.school-info-link {
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer; 
+    
+    /* ******** สำคัญ: ทำให้ลิงก์จัดเรียงโลโก้และชื่อโรงเรียน ********** */
+    display: flex; 
+    align-items: center;
+}
 
 .school-info {
     display: flex;
@@ -514,7 +523,8 @@ footer {
     height: 600px; 
     object-fit: cover;
     display: block;
-    border-radius: 10px;
+    border-radius:0  0 10px 10px;
+    
 }
 
 .detail-secondary-logo {

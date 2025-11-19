@@ -44,8 +44,18 @@ header {
     margin: 0 auto;
 }
 
+.school-info-link {
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer; 
+    
+    /* ******** สำคัญ: ทำให้ลิงก์จัดเรียงโลโก้และชื่อโรงเรียน ********** */
+    display: flex; 
+    align-items: center;
+}
+
 .school-info {
-    display: flex;
+    display: flex; 
     align-items: center;
 }
 
@@ -212,6 +222,7 @@ nav a.active::after {
     /* ******** ปรับ top ให้เหมาะสมกับ Header Sticky ********** */
     top: 119.5; /* ใช้ค่าประมาณ 680px เพื่อข้าม Header, Swiper, และหัวข้อ */
     z-index: 500;
+    margin-top: -620px;
 }
 
 /*==================== Section Styling ====================*/
@@ -274,13 +285,14 @@ nav a.active::after {
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* text-align: left; */
+    text-align: center;
     display: flex;
     flex-direction: column;
     text-decoration: none; /* ลบขีดเส้นใต้ของลิงก์ */
     color: inherit; /* ใช้สีตัวอักษรเดิม */
     background-color: #fff;
     border-radius: 10px;
+    min-height: 450px;
     /* ... อื่นๆ */
     
     /* ********* ต้องมี Transition เพื่อความนุ่มนวล ********** */
@@ -307,7 +319,7 @@ nav a.active::after {
 
 .work-content {
     padding: 1rem;
-    flex-grow: 1;
+    display: block
 }
 
 .work-title {
@@ -463,7 +475,9 @@ footer {
         gap: 2rem;
     }
     .footer-column {
-        margin: 0;
+        margin-top: 0 !important;
+
+        
     }
 }
 
@@ -507,4 +521,44 @@ footer {
     .text-content {
         text-align: center;
     }
+}
+/*==================== Detail Page Styles (ใน A2.css) ====================*/
+
+/* 1. กล่องหัวข้อหลัก (Container) */
+.detail-card-header {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    width: 90%; 
+    max-width: 1000px;
+    margin: -100px auto 3rem; 
+    
+    /* ******** A. ปรับ Padding ให้กระชับ (ค่าที่ใช้ในการเว้นขอบ) ********** */
+    padding: 1rem 1.5rem; /* บน-ล่าง 1rem, ซ้าย-ขวา 1.5rem */
+    
+    text-align: center;
+    position: relative;
+    z-index: 10; 
+}
+
+/* 2. หัวข้อหลัก (H1) */
+.detail-main-heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--dark-grey);
+    line-height: 1.3;
+    
+    /* ******** B. สำคัญ: ล้าง Margin ทั้งหมดเพื่อให้ชิด Padding ********** */
+    margin: 0; 
+}
+
+/* 3. วันที่ (P) */
+.detail-date-small {
+    font-size: 0.9rem;
+    color: #888;
+    font-weight: 400;
+    
+    /* ******** C. กำหนด Margin-top ให้เกิดช่องว่างเล็กน้อย และล้าง Margin ด้านล่าง ********** */
+    margin-top: 0.5rem; /* เว้นระยะห่างจากหัวข้อหลัก (0.5rem) */
+    margin-bottom: 0;  /* สำคัญ: ล้าง Margin ด้านล่างให้หมด */
 }

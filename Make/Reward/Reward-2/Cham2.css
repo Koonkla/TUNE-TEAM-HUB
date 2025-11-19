@@ -40,12 +40,20 @@ header {
     max-width: 1200px;
     margin: 0 auto;
 }
+.school-info-link {
+    text-decoration: none; 
+    color: inherit; 
+    cursor: pointer; 
+    
+    /* ******** สำคัญ: ทำให้ลิงก์จัดเรียงโลโก้และชื่อโรงเรียน ********** */
+    display: flex; 
+    align-items: center;
+}
 
 .school-info {
     display: flex;
     align-items: center;
 }
-
 .logo {
     height: 55px; /* ปรับขนาดโลโก้ */
     width: auto;
@@ -514,6 +522,7 @@ footer {
     height: 600px; 
     object-fit: cover;
     display: block;
+    border-radius:0  0 10px 10px;
 }
 
 .detail-secondary-logo {
@@ -548,18 +557,19 @@ footer {
     width: 90%; 
     max-width: 1000px;
     margin: -100px auto 3rem; 
-    padding: 2.5rem 2.5rem 1.5rem;
+    padding: 1rem 1.5rem;
     text-align: center;
     position: relative;
-    z-index: 10
+    z-index: 10 
 }
 
 .detail-main-heading {
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--dark-grey);
-    margin: 0 0 0.5rem 0;
+    margin: 0;
     line-height: 1.3;
+    
 }
 
 .detail-date-small {
@@ -567,6 +577,9 @@ footer {
     color: #888;
     margin: 0;
     font-weight: 400;
+    margin-top: 0.5rem; /* เว้นระยะห่างจากหัวข้อหลักเล็กน้อย */
+    margin-bottom: 0;
+    margin: 0.5rem 0 0 0;
 }
 
 /* ส่วนเนื้อหารายละเอียด (body) */
@@ -623,4 +636,8 @@ footer {
     padding-left: 0;
     text-indent: 0;
     border-bottom: none; /* ไม่ต้องมีเส้นขีดในรายการลำดับ */
+}
+
+.category-tag {
+    margin-bottom: 0;
 }
